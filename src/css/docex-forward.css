@@ -1,0 +1,332 @@
+@CHARSET "UTF-8";
+
+body {
+	font-size: 1em;
+	font-family: 'Microsoft YaHei', Tahoma, Helvetica, Arial, SimSun, sans-serif;
+	margin: 0px;
+	padding: 0px;
+	background-color: #ffffff;
+}
+
+div.bar {
+	height: 40px;
+	width: 100%;
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+	box-orient: horizontal;
+	background-color: #ffffff;
+	border-bottom: 1px solid #cccccc;
+	position: fixed;
+	top: 0px;
+	z-index: 6;
+}
+div.bar div.back {
+	margin-top: 5px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 0.9em;
+	text-align: center;
+	cursor: pointer;
+	padding-left: 1em;
+	padding-right: 1em;
+	/*border-right: 1px solid #999999;*/
+}
+div.bar div.glue {
+	margin-top: 8px;
+	white-space: nowrap;
+	overflow:auto;
+	font-weight: bold;
+	font-size:1.2em;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+}
+
+div.bar div.cb {
+	margin-top: 5px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 0.9em;
+	text-align: center;
+	cursor: pointer;
+	padding-left: 1em;
+	padding-right: 1em;
+	/*border-left: 1px solid #999999;*/
+	-webkit-box-flex: 0;
+	-moz-box-flex: 0;
+	box-flex: 0;
+}
+
+div.bar-background {
+	height: 40px;
+	width: 100%;
+	background-color: #ffffff;
+}
+
+div.blank {
+	height: 40px;	
+}
+
+/*已阅和未读导航样式*/
+div.tabBorder{
+	//margin: 2px 0px;
+	//border-radius: 5px;
+	height: 3em;
+	width:100%;
+	line-height: 3em;
+	border-bottom: 1px solid #cccccc;
+	
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+	box-orient: horizontal;
+}
+
+div.tabBorder div.tab_revertArb{
+	text-align: center;
+	width:50%;
+	margin-left: 2em;
+	//border-right : 1px solid #BFBFBF; 
+	padding: 0 2px 0 2px;
+	cursor: pointer;
+	
+	border-left: 1px solid #157EFB;
+    border-top: 1px solid #157EFB;
+    border-bottom: 1px solid #157EFB;
+    border-right: 1px solid #157EFB;
+    height: 2em;
+    margin-top: 0.4em;
+    line-height: 2em;
+    color: #157efb;
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+	
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+	
+}
+
+div.tabBorder div.tab_revertStep{
+	text-align: center;
+	//float:right;
+	//margin-top:-30px;
+	width:50%;
+	margin-right: 2em;
+	/*border-radius: 5px 0 0 5px;*/
+	padding: 0 2px 0 2px;
+	cursor: pointer;
+	
+	border-top: 1px solid #157EFB;
+    border-bottom: 1px solid #157EFB;
+    border-right: 1px solid #157EFB;
+    height: 2em;
+    margin-top: 0.4em;
+    line-height: 2em;
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    color: #157efb;
+	
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+}
+
+div.selectedTabItem {
+	//font-weight: bold;
+	background-color: #157EFB;
+    color: #ffffff!important;
+}
+
+div#main{
+	//margin-top:-8px;
+}
+
+
+/*任意流转样式*/
+div.revertArb{
+	margin-top: 0.5em;
+}
+
+div.add_to_special{
+	clear: both;
+	padding: 0.5em 0.5em;
+	border-top:1px solid #cccccc;
+	border-bottom:1px solid #cccccc;
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+	box-orient: horizontal;
+}
+div.add_to_special div.special{
+	width: 2em;
+	height: 2em;
+	background-image: url(../img/add_to_special_active.png?v=2);
+	background-size: 2em 2em; 
+	background-repeat: no-repeat;
+	background-position:center;
+	-webkit-box-flex: 0;
+	-moz-box-flex: 0;
+	box-flex: 0;
+}
+div.add_to_special div.special_description{
+	margin-left: 0.5em;
+	line-height: 2.2em;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+}
+
+/*步骤流转样式*/
+div.title{
+	//width: 100%;
+	padding: 0.5rem;
+	border-bottom: 1px solid #cccccc;
+	
+	display: flex;
+	display: -webkit-flex;
+	-flex-flow: row;
+	-webkit-flex-flow: row;
+	-moz-flex-flow: row;
+}
+div.step_name{
+	flex: 1.0;
+	width: 85%;
+	line-height: 1.2em;
+}
+div.step_delete_img{
+	width: 1.2em;
+	height: 1.2em;
+	line-height: 1.4em;
+	padding: 0.5em 0.2em 0.2em 0;
+	background-image:url(../img/delete_step_normal.png);
+	background-size: 1.2em 1.2em;
+	background-repeat: no-repeat;
+}
+div.step_style{
+	//width: 100%;
+	height: 3.0rem;
+	border-top: 1px solid #cccccc;
+	padding: 0.5em;
+	clear: both;
+}
+div.step_style div{
+	text-align: center;
+	width: 6em;
+	height: 2em;
+	line-height: 2em;
+	float: left;
+	//flex: 1.0;
+}
+
+.step_selected{
+	background-image:url(../img/step_selected.png?v=2);
+	background-size: 6em 2em;
+	background-repeat: no-repeat;
+}
+
+div.choose_permision{
+	clear: both;
+	padding: 0.5em 0.5em;
+	border-top:1px solid #cccccc;
+	border-bottom:1px solid #cccccc;
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+	box-orient: horizontal;
+}
+
+div.choose_permision div.alter{
+	width: 50%;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+	
+	display: flex;
+	display: -webkit-flex;
+	-flex-flow: row;
+	-webkit-flex-flow: row;
+	-moz-flex-flow: row;
+}
+div.choose_permision div.forward{
+	width: 50%;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+	
+	display: flex;
+	display: -webkit-flex;
+	-flex-flow: row;
+	-webkit-flex-flow: row;
+	-moz-flex-flow: row;
+}
+
+div.choose_permision div.alter div.alter_img{
+	width: 2em;
+	height: 2em;
+	background-image: url(../img/add_to_special_active.png?V=2);
+	background-size: 2em 2em; 
+	background-repeat: no-repeat;
+	background-position:center;
+}
+div.choose_permision div.alter_description{
+	margin-left: 0.5em;
+	line-height: 2.4em;
+	flex: 1.0;
+}
+div.choose_permision div.forward div.forward_img{
+	width: 2em;
+	height: 2em;
+	background-image: url(../img/add_to_special_normal.png);
+	background-size: 2em 2em; 
+	background-repeat: no-repeat;
+	background-position:center;
+}
+div.choose_permision div.forward_description{
+	margin-left: 0.5em;
+	line-height: 2.4em;
+	flex: 1.0;
+}
+/*增加步骤*/
+div#add_step{
+	width: 100%;
+	height: 2.0em;
+	line-height: 2.0em;
+	text-align: center;
+	color: #3cbaff;
+	font-size: 1em;
+}
+
+/*上一步+发送按钮*/
+div#prestep-send{
+	width: 100%;
+	height: 3.0rem;
+	line-height: 3.0rem;
+	margin: 0;
+	padding: 0;
+	color: #9a9a9a;
+	background-color: #fff;
+	z-index: 6;
+	position: fixed;
+	bottom: 0;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+div#prestep-send div:before{    
+	content: '|';
+    float: left;
+    opacity: 0.2;
+}
+div#prestep-send div:first-of-type:before{content: '';}
+div#prestep{
+	border-right: 1px solid #3cbaff;
+}

@@ -1,0 +1,505 @@
+@CHARSET "UTF-8";
+
+body {
+	font-size: 1em;
+	font-family: 'Microsoft YaHei', Tahoma, Helvetica, Arial, SimSun, sans-serif;
+	margin: 0px;
+	padding: 0px;
+	background-color: #f1f4f8;
+}
+
+div.bar {
+	height: 40px;
+	width: 100%;
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+	box-orient: horizontal;
+	background-color: #ffffff;
+	border-bottom: 1px solid #cccccc;
+	position: fixed;
+	top: 0px;
+	z-index: 6;
+}
+div.bar div.back {
+	margin-top: 5px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 0.9em;
+	text-align: center;
+	cursor: pointer;
+	padding-left: 1em;
+	padding-right: 1em;
+	/*border-right: 1px solid #999999;*/
+}
+div.bar div.glue {
+	padding-top:5px;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+}
+div.bar div.glue div.tabBorder{
+	width: 164px;
+	margin: auto;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 5px;
+	
+	display:-webkit-box;
+	display:-moz-box;
+	display:box;
+	-webkit-box-orient:horizontal;
+	-moz-box-orient:horizontal;
+	box-orient:horizontal;
+}
+div.bar div.glue div.tabItem-left{
+	width: 82px;
+	-webkit-box-flex:1;
+	-moz-box-flex:1;
+	box-flex:1;
+	text-align: center;
+	
+	border-top-left-radius:5px;
+	border-bottom-left-radius:5px;
+	border-top: 1px #0062d2 solid;
+	border-bottom: 1px #0062d2 solid;
+	border-left: 1px #0062d2 solid;
+	border-right: 1px solid #0062d2;
+}
+div.bar div.glue div.tabItem-right{
+	width: 82px;
+	-webkit-box-flex:0;
+	-moz-box-flex:0;
+	box-flex:0;
+	text-align: center;
+	
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+	
+	border-top: 1px #0062d2 solid;
+	border-bottom: 1px #0062d2 solid;
+	border-right: 1px #0062d2 solid;
+}
+
+/*用户体验改造新头部样式 add by fa_zhang 2015-09-22*/
+.top_margin {
+	top: 0px;
+	left: 0px;
+	margin: 0px;
+	text-align: center;
+	width: 100%;
+	height: 3em;
+	background-color: #fff;
+	position:fixed;
+	z-index: 9;
+	
+	display:-webkit-box;
+	display:-moz-box;
+	display:box;
+	-webkit-box-orient:horizontal;
+	-moz-box-orient:horizontal;
+	box-orient:horizontal;
+	border-bottom: 1px solid #cccccc;
+	
+}
+
+.top_margin div{
+	text-align: center;
+	border: 0px solid gray;
+}
+
+.top_margin .top_dratf{
+	width: 20%;
+	tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: transparent; 
+}
+
+.top_margin .top_dratf img{
+	position: relative;
+	width: 1em;
+	height: 1em;
+	margin-top: 1em;
+}
+
+.top_margin .top_undone{
+	width: 30%;
+	border-top:1px solid #f2f2f2;
+	tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: transparent;
+}
+
+.top_margin .top_undone .top_button_undone{
+	border-left:1px solid #157EFB;
+	border-top:1px solid #157EFB;
+	border-bottom:1px solid #157EFB;
+	border-right:1px solid #157EFB;
+	
+	height: 2em;
+	margin-top: 0.4em;
+	line-height: 2em;
+	color: #157efb;
+	border-top-left-radius:0.5em;
+	border-bottom-left-radius:0.5em;
+	/*background-color: #157EFB;
+	color: #fff;*/
+	
+}
+
+.top_margin .top_done{
+	width: 30%;
+	border-top:1px solid #f2f2f2;
+	tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: transparent;
+}
+
+.top_margin .top_done .top_button_done{
+	border-top:1px solid #157EFB;
+	border-bottom:1px solid #157EFB;
+	border-right:1px solid #157EFB;
+	
+	height: 2em;
+	margin-top: 0.4em;
+	line-height: 2em;
+	border-top-right-radius:0.5em;
+	border-bottom-right-radius:0.5em;
+	/*background-color:#fff;
+	color: #157EFB;*/
+	color: #157efb;
+}
+
+.top_margin .top_entrust{
+	width: 20%;
+	text-align: center;
+	line-height: 3em;
+	color: #157EFB;
+}
+
+div.selectedTabItem {
+	background-color: #157EFB;
+	color: #ffffff!important;	
+}
+
+div.bar div.cb {
+	margin-top: 5px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 0.9em;
+	text-align: center;
+	cursor: pointer;
+	padding-left: 1em;
+	padding-right: 1em;
+	/*border-left: 1px solid #999999;*/
+	-webkit-box-flex: 0;
+	-moz-box-flex: 0;
+	box-flex: 0;
+}
+
+div.bar-background {
+	height: 40px;
+	width: 100%;
+	background-color: #ffffff;
+}
+
+div.tab_button {
+	position: fixed;
+	top: 40px;
+	width: 100%;
+	height: 35px;
+	cursor: pointer;
+	border-bottom:1px #797979 solid;
+	background-color: #ffffff;
+}
+
+div.tab_button_left {
+	width: 50%;
+	float: left;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+}
+
+div.tab_button_right {
+	width: 50%;
+	float: right;
+	heigth: 35px;
+	line-height: 35px;
+	text-align: center;
+}
+	
+div.cur_tab_button {
+	height:5px;
+	width:50%;
+	background-color:#2fccff;
+	position:fixed;
+	z-index:1000;
+	top:71px;
+}
+#tab-left > i {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: #3cbaff;
+    margin-left: 5px;
+    opacity: 0.7;
+}
+#tab-right .aui-icon-unfold {
+	padding-left: 5px;
+}
+.split-line {
+	float: left;
+    width: 1px;
+    height: 25px;
+    background-color: #dce1e8;
+    margin: 10px 0;
+    opacity: .2;
+}
+div.blank {height: 3.0em;}
+
+div.main div.docex-item{
+	padding-left: 5px;
+	padding-top: 10px;
+}
+#main {
+	background-color: #fff;
+	margin-top: 5px;
+}
+#main .docex-item {
+    width: 100%;
+    display: -webkit-box;
+    display: box;
+}
+#main .docex-item  .aui-flex-item-2{
+    -webkit-box-flex: 0;
+ 	box-flex: 0;
+}
+#main .docex-item  .aui-flex-item-10{
+ 	-webkit-box-flex: 1;
+  	box-flex: 1;
+  	border-bottom: 1px solid #dce1e8;
+ 	padding-right: 0;
+}
+#main .docex-item:last-of-type{margin-bottom: 0.5rem;}
+#main .docex-item:last-of-type div:last-of-type{ border: none;}
+
+div.list {
+	background-color: #fafafa;
+	height: 40px;
+	border-bottom: 1px solid #dddddd;
+	padding: 0.5em;
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+	box-orient: horizontal;
+	cursor: pointer;
+}
+
+div.list div.image {
+	width: 35px;
+	height: 35px;
+	-webkit-box-flex: 0;
+	-moz-box-flex: 0;
+	box-flex: 0;
+	overflow: hidden;
+}
+
+div.list div.image img{
+	width: 35px;
+	height: 35px;	
+}
+	
+div.list div.text {
+	margin-left: 0.5em;
+	height: 35px;
+	line-height: 35px;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+}
+
+/*单个列表项样式css*/
+div.file {
+	background-color: #fafafa;
+	height: 80px;
+	border-bottom: 1px solid #cccccc;
+	padding: 0.5em;
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+	box-orient: horizontal;
+	cursor: pointer;
+}
+
+div.file div.image {
+	width: 60px;
+	height: 80px;
+	//line-height: 60px;
+	vertical-text: center;
+	text-align: center;
+	-webkit-box-flex: 0;
+	-moz-box-flex: 0;
+	box-flex: 0;
+	overflow: hidden;
+	display: flex;
+	display: -webkit-flex;
+	-flex-flow: column;
+	-webkit-flex-flow: column;
+	-moz-flex-flow: column;
+}
+
+div.file div.image img{
+	width: 60px;
+	height: 60px;
+}
+div.file div.image div.user_photo{
+	width: 60px;
+	height: 60px;
+	background-size: 60px 60px;;
+	background-repeat: no-repeat;
+}
+
+div.file div.image div.sender{
+	flex: 1.0;
+	width: 60px;
+	line-height: 2.0em;
+	font-size: 0.85em;
+	color: #5f5f5f;
+}
+	
+div.file div.content {
+	margin-left: 0.5em;
+	height: 20px;
+	line-height: 20px;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+}
+div.file div.content div.name{
+	font-size: 1em;
+	font-weight: bold;
+	color: #373737;
+	text-decoration: none;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+div.file div.content div.status{
+	font-size: 0.80em;
+	padding-top: 5px;
+	color:#909090;
+}
+div.file div.content div.file_time {
+	//margin-left:20px;
+	line-height:20px;
+	font-size: 0.8em;
+	color: #909090;
+	text-decoration: none;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+div.file div.file_attach{
+	width: 2.0em;
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    box-flex: 0;
+}
+div.file div.file_attach div.attach_image img{
+	width: 1em;
+}
+.attach_num{
+	font-size: 0.85em;
+	color: #157EFB;
+}
+
+/*我发起的 我经办的tab样式*/
+div.doTab{
+	//margin-top: 9px;
+	//border-radius: 5px;
+	background-color: #fff;
+	position: fixed;
+	top: 3em;
+	z-index: 6;
+	height: 3.0em;
+	width:100%;
+	line-height: 3.0em;
+	border-bottom: 1px solid #cccccc;
+	
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+	box-orient: horizontal;
+}
+div.doTab div.tab_myDraft{
+	text-align: center;
+	width:50%;
+	margin-left:1.0em;
+	//border-right : 1px solid #BFBFBF;
+	padding: 0 5px 0 5px;
+	cursor: pointer;
+	color: #909090;
+	tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: transparent; 
+	
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+	
+}
+div.doTab div.tab_mySent{
+	text-align: center;
+	//float:right;
+	//margin-top:-30px;
+	width:50%;
+	margin-right:1.0em;
+	/*border-radius: 5px 0 0 5px;*/
+	padding: 0 5px 0 5px;
+	cursor: pointer;
+	color: #909090;
+	tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: transparent; 
+	
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+}
+div.selectedDoTab {
+	font-weight: bold;
+	color: #373737!important;
+	border-bottom:2px #157efb solid;
+	border-width:50%;	
+}
+
+/*首页列表项样式*/
+.docex-item div img{
+	border-radius: 50%;
+    width: 3.0rem;
+    height: 3.0rem;
+    display: block;
+    margin: 0 auto;
+}
+.docex-item div h4{
+	font-size: 0.80rem;
+    line-height: 20px;
+}
+.unreaded-docex-item{ color: #3cbaff;}
+#add_new{position: fixed; bottom: 0;width: 100%;height: 3rem; line-height: 3rem; text-align: center;z-index: 9;background-color: #fff;color: #3cbaff;}

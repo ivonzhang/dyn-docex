@@ -1,0 +1,247 @@
+@charset "utf-8";
+
+body {background-color: #f1f4f8;color: #3f3f3f;}
+
+/*loading样式*/
+div.page-loading {
+	position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-top: -20px;
+    margin-left: -20px;
+    background-color: #fff;
+    border-radius: 100%;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    border: 2px solid #bdbdbd;
+    border-bottom-color: transparent;
+    height: 45px;
+    width: 45px;
+    background: transparent !important;
+    display: inline-block;
+    -webkit-animation: rotate 1s 0s linear infinite;
+    animation: rotate 1s 0s linear infinite;
+    z-index: 10;
+}
+
+/* 主标题样式 */
+.font_title {
+	font-weight: 900;
+	font-size: 16px;
+}
+
+/* 副标题样式 */
+.font_sub_title {
+	font-size: 14px;
+}
+
+/* 标题信息样式一 */
+.font_title_other1 {
+	font-size: 0.70rem;
+}
+
+.main-font-color{color: #3f3f3f;}
+.sub-font-color{color: #98a1a8;}
+.tips-font-color{color: #bdbdbd;}
+
+/* 文字过多显示*/
+.ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.actived {
+	color: #3cbaff ! important;
+	border-bottom: 2px #3cbaff solid !important;
+}
+
+/* 点击波浪效果 */
+.ripplelink {
+	text-decoration: none;
+	position: relative;
+	overflow: hidden;
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+	z-index: 0;
+}
+.ink {
+	display: block;
+	position: absolute;
+	background: rgba(21, 126, 251, 0.3);
+	border-radius: 100%;
+	-webkit-transform: scale(0);
+	-moz-transform: scale(0);
+	-o-transform: scale(0);
+	transform: scale(0);
+}
+.animate {
+	-webkit-animation: ripple 0.65s linear;
+	-moz-animation: ripple 0.65s linear;
+	-ms-animation: ripple 0.65s linear;
+	-o-animation: ripple 0.65s linear;
+	animation: ripple 0.65s linear;
+}
+@-webkit-keyframes 
+ripple { 100% {
+	opacity: 0;
+	-webkit-transform: scale(2.5);
+}
+}
+@-moz-keyframes 
+ripple { 100% {
+	opacity: 0;
+	-moz-transform: scale(2.5);
+}
+}
+@-o-keyframes 
+ripple { 100% {
+	opacity: 0;
+	-o-transform: scale(2.5);
+}
+}
+@keyframes 
+ripple { 100% {
+	opacity: 0;
+	transform: scale(2.5);
+}
+}
+
+/**云之家单击效果规范**/
+@-webkit-keyframes click-active
+{
+	from   {background: #fff;}
+	to  {background: #000000;opacity: 0.05;}
+}
+.yunzhijia-click-active1{
+	-webkit-animation: click-active 0.8s; /* Safari and Chrome */
+}
+.yunzhijia-click-active2:active{
+	box-shadow: inset 0 0 1000px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: inset 0 0 1000px rgba(0, 0, 0, 0.2);
+}
+.yunzhijia-click-active3{
+	box-shadow: inset 0 0 1000px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: inset 0 0 1000px rgba(0, 0, 0, 0.2);
+}
+
+/*遮罩*/
+#bg{ display: none;  position: fixed;  top: 0%;  left: 0%;  width: 100%;  height: 100%;  background-color: black;  z-index:1001;  -moz-opacity: 0.3;  opacity:.30;  filter: alpha(opacity=30);}
+/*自定义提示窗口: 单个按钮*/
+div.customAlert {display: none;  position: fixed;  top: 35%;  left: 10%;  width: 80%;    padding: 1px;  border: 1px solid #E8E9F7;  background-color: white;  z-index:1002;  overflow: auto; border-radius: 0.3rem;}
+div.custom_alert_title{
+	height:auto!important;
+	min-height:80px;
+	line-height: 1.5;
+	text-align: center;
+	padding:20px;
+	border-bottom: 1px solid #dddddd;
+	
+	white-space: pre-wrap; /* css-3 */
+	white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+	white-space: -pre-wrap; /* Opera 4-6 */
+	white-space: -o-pre-wrap; /* Opera 7 */
+	word-wrap: break-word; /* Internet Explorer 5.5+ */
+	word-break:break-all;
+}
+div.custom_confirm_div{
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #3cbaff;
+}
+div.custom_confirm_div:active{box-shadow: inset 0 0 1000px rgba(0, 0, 0, 0.2);-webkit-box-shadow: inset 0 0 1000px rgba(0, 0, 0, 0.2);}
+
+/*自定义弹出提示框: 取消+确定两个按钮*/
+div.myAlert{display: none;  position: fixed;  top: 35%;  left: 5%;  width: 90%;    padding: 0px;  background-color: #ffffff;  z-index:1002;  overflow: auto;border-radius: 0.3rem;}
+div.alert_title{
+	min-height:80px;
+	line-height: 2.0;
+	padding: 20px;
+	text-align:center;
+	border-bottom: 1px solid #dddddd;
+}
+div.opration_div{
+  	width: 100%;
+  	margin:0 auto;
+	line-height: 30px;
+	padding: 0.5rem 0;
+	border-radius: 5px;
+	
+	display:-webkit-box;
+	display:-moz-box;
+	display:box;
+	-webkit-box-orient:horizontal;
+	-moz-box-orient:horizontal;
+	box-orient:horizontal;
+}
+div.cancle{
+	-webkit-box-flex:1;
+	-moz-box-flex:1;
+	box-flex:1;
+	text-align: center;
+	border-right: 1px solid #dce1e8;
+	color: #9a9a9a;
+}
+div.confirm{
+	-webkit-box-flex:1;
+	-moz-box-flex:1;
+	box-flex:1;
+	text-align: center;
+	color: #3cbaff;
+}
+/*被选人样式*/
+div.choosed_users div{
+	float: left;
+}
+div.choosed_user{
+	width: 3.0em;
+	height: 3.0em;
+	background-image: url(../img/xt.png);
+	background-size: 3.0em 3.0em; 
+	background-repeat: no-repeat;
+	position:relative;
+	margin: 0.5em 0.5em 1.5em 0.5em;
+	border-radius: 30px;
+}
+div.delete{
+	position:absolute;
+	width: 20px;
+	height: 20px;
+	right:-16px;
+	top:-8px;
+	background-image: url(../img/delete_normal.png);
+	background-size: 20px 20px; 
+	background-repeat: no-repeat;
+	z-index: 6;
+	margin: 0 0.5em 1.5em 0.5em;
+	
+}
+div.choosed_user_name{
+	position: absolute;
+    width: 55px;
+    height: 20px;
+    bottom: -3.0em;
+    font-size: 0.75em;
+    color: #98a1a8;
+    text-align: center;
+    margin: 0 0.5em 1.5em 0em;
+}
+div.click_to_choose_users{
+	width: 3.4em;
+	height: 3.4em;
+	/*background-image: url(../img/add_user_normal.png);*/
+	/*background-size: 3.3em 3.3em;*/ 
+	/*background-repeat: no-repeat;*/
+	text-align: center;
+	margin: 0.5rem;
+	border: 1px solid #dce1e8;
+    border-radius: 30px;
+    background-color: #fff;
+}
+div.click_to_choose_users > i{
+	font-size: 2.2rem;
+    color: #dce1e8;
+}

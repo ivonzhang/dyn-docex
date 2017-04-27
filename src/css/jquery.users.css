@@ -1,0 +1,185 @@
+@CHARSET "UTF-8";
+
+div.user-select-bg {
+	display: none;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background-color: rgba(0, 0, 0, 0.1);
+	z-index: 99;
+}
+
+div.user-select {
+	width: 100%;
+	height: 100%;
+	background-color: #ffffff;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+div.user-select div.header {
+	width: 100%;
+	height: 42px;
+	border-bottom: 1px solid #cccccc;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+}
+
+div.user-select div.header div.glue {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	height: 42px;
+}
+
+div.user-select div.header div.left,
+div.user-select div.header div.right {
+	width: 3em;
+	height: 42px;
+	line-height: 42px;
+	text-align: center;
+	cursor: pointer;
+	color: #2222FF;
+}
+
+div.user-select div.search {
+	width: 100%;
+	height: 2em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	border-bottom: 1px solid #ededed;
+}
+
+div.user-select div.search div.search-box {
+	height: 2em;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	background-color: #ededed;
+	border-radius: 4px;
+}
+
+div.user-select div.search div.search-box input {
+	width: 98%;
+	height: 1.4em;
+	line-height: 1.4em;
+	font-size: 1em;
+	margin-top: 0.3em;
+	margin-left: 0.3em;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border-style: none;
+	background-color: #ededed;
+}
+
+div.user-select div.list {
+	overflow-y: auto;
+	background-color: #f2f2f2;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+
+div.user-select div.list div.empty {
+	height: 50px;
+	line-height: 50px;
+	background-color: #ffffff;
+	color: #aaaaaa;
+	font-size: 1em;
+	text-align: center;
+	cursor: pointer;
+}
+
+div.user-select div.list div.user {
+	height: 50px;
+	line-height: 50px;
+	margin-bottom: 1px;
+	background-color: #ffffff;
+	text-align: left;
+	cursor: pointer;
+}
+
+div.user-select div.list div.user div.select {
+	height: 50px;
+	width: 30px;
+	border-style: none;
+	margin-left: 5px;
+	float: left;
+}
+
+div.user-select div.list div.user div.checked {
+	background-image: url(../img/select-check.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 20px 20px
+}
+
+div.user-select div.list div.user img.user_img {
+	float:left;
+	margin-top: 7px;
+	margin-left: 5px;
+	height: 36px;
+	width: 36px;
+	border-style: none;
+}
+div.user-select div.list div.user font.username {
+	margin-left: 5px;
+	font-size: 1em;
+	color: #2e343d;
+}
+
+div.user-select div.footer {
+	display: block;
+	width: 100%;
+	height: 80px;
+	overflow-x: auto;
+	background-color: #ffffff;
+	border-top: 1px solid #dddddd;
+}
+
+div.user-select div.footer div.item {
+	display: block;
+	float: left;
+	width: 50px;
+	height: 50px;
+	margin-top: 5px;
+	margin-left: 5px;
+	text-align: center;
+}
+
+div.user-select div.footer div.item img.icon {
+	width: 40px;
+	height: 40px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+div.user-select div.footer div.item div.name {
+	width: 100%;
+	border-style: none;
+	overflow: hidden;
+	text-align: center;
+	height: 10px;
+	line-height: 10px;
+	font-size: 0.6em;
+	color: #515151;
+	padding-top: 0px;
+	margin-top: 0px;
+}

@@ -1,0 +1,51 @@
+.search_con{
+	height: 32px;
+	position: relative;
+	background-color: #cccccc;
+}
+
+.search_left{
+	height: 24px;
+	position: absolute;
+	left: 5px;
+	right: 55px;
+	top: 4px;
+	background-color: #fff;
+}
+
+.search_img{
+	 width: 20px;
+	 margin: 0px;
+	 border: 0px;
+	 position: absolute;
+	 left: 3px;
+	 top: 2px;
+	 height: 20px;
+}
+.del_img{
+	 position: absolute;
+	 width: 16px;
+	 top: 4px;
+	 right: 3px;
+	 cursor: pointer;
+}
+
+.search_input{
+	position: absolute;
+	left: 24px;
+	right: 24px;
+	height: 22px;
+	border: 0px;
+}
+.search_right{
+	display: inline-table;
+	position: absolute;
+	right: 5px;
+	height: 24px;
+	line-height: 24px;
+	top: 4px;
+	width: 42px;
+	background-color: #dddddd;
+	text-align: center;
+	cursor: pointer;
+}

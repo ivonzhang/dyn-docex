@@ -1,0 +1,118 @@
+@charset "utf-8";
+body {
+	font-size: 1em;
+	font-family: SimHei, Tahoma, Helvetica, Arial, SimSun, sans-serif;
+	margin: 0px;
+	padding: 0px;
+	background-color: #f2f4f8;
+	color: rgb(58,64,73);
+}
+/* 头部返回行样式【开始】 */
+div.common_top {
+	position: fixed;
+	top: 0px;
+	z-index: 8;
+	height: 40px;
+	width: 100%;
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+	box-orient: horizontal;
+	background-color: #ffffff;
+	border-bottom: 1px solid #dddddd;
+}
+div.common_top div.common_top_glue {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+}
+div.common_top div.common_top_left {
+	margin-top: 5px;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 1em;
+	padding-right: 1em;
+	text-align: center;
+	cursor: pointer;
+	color: rgb(114,122,129);
+	border-right: 1px solid #999999;
+}
+div.common_top div.common_top_left img {
+	margin-left: 15px;
+	margin-top: 7px;
+	height: 22px;
+	width: 27px;
+}
+div.common_top div.common_top_right {
+	margin-top: 5px;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 1em;
+	padding-right: 1em;
+	text-align: center;
+	cursor: pointer;
+	color: rgb(114,122,129);
+	border-left: 1px solid #999999;
+}
+div.common_top div.common_top_right button {
+	background-color: transparent;
+	margin:0px;
+	padding: 0px 10px;
+	border-width: 0px;
+	font-size: 15px;
+	font-weight: 900;
+	color: rgb(114,122,129);
+	border-left: 2px solid #dddddd;
+}
+.top_margin {
+	/*margin-top: 41px;*/
+}
+/* 头部返回行样式【结束】 */
+
+/* 头部菜单样式【如待办、已办等】 */
+.menu_button {
+	height: 100%;
+	font-size: 16px;
+	float: left;
+	border-width: 0px;
+	color: rgb(114,122,129);
+	background-color: transparent;
+}
+/* 头部菜单选中样式 */
+.menu_select {
+	color: #00ccff;
+	border-bottom: 3px solid #00ccff;
+}
+#bottomRefresh {
+	position: fixed;
+	text-align: center;
+	bottom: 0px;
+	left: 0px;
+	font-size: 16px;
+	height: 40px;
+	width: 100%;
+	line-height: 40px;
+	display: none;
+	border-top: 1px solid #e7e7e7;
+	background-color: #ededed;
+}
+
+/* 主标题样式 */
+.font_title {
+	color: #000000;
+	font-weight: 900;
+	font-size: 20px;
+}
+/* 副标题样式 */
+.font_sub_title {
+	color: #808080;
+	font-size: 15px;
+}
+/* 文字过多显示。。。 */
+.ellipsis {
+	white-space:nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+}

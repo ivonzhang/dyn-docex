@@ -1,0 +1,52 @@
+@charset "utf-8";
+
+/*CSSCode-Start*/
+        /*各个插件各自的css内容 start*/
+        /*操作提示中间弹出窗*/
+        .center-modal-back{
+            background: #393e47;
+            width: 200px;
+            margin: 0 auto;
+            padding-top: 22px;
+            height: 150px;
+            border-radius:5px;
+            opacity: 0.6;
+            filter: alpha(opacity=60);
+            position:absolute; 
+            top:50%; 
+            left:50%;
+            z-index: 1041;
+            margin:-86px 0 0 -100px;
+        }
+
+        .center-modal{
+            text-align: center;
+            min-width:6em;
+        }
+        .center-modal-close{
+            display: block;
+        }
+        .center-modal-close .fa-times,.center-modal-close .fa-check{
+            color:#fff;
+            font-size: 6em;
+        }
+        .center-modal-back span{
+            color: #fff;
+            font-size: 2em;
+            display: block;
+        }
+        .full-screen-modal-back{
+            background-color: #393e47;
+            width: 100%;
+            height: 100%;
+            opacity: 0.6;
+            filter: alpha(opacity=60);
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1040;
+        }
+        /*各个插件各自的css内容 end*/
+        /*CSSCode-End*/
