@@ -1,6 +1,12 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <transition
+        name="custom-classes-transition"
+        enter-active-class="animated bounce"
+        leave-active-class="animated bounceOutLeft"
+    >
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -42,4 +48,66 @@ export default {
   padding: 0px;
   background-color: #f1f4f8;
 }
+
+
+/* .fold-enter-active {
+  animation-name: fold-in;
+  animation-duration: .5s;
+}
+.fold-leave-active {
+  animation-name: fold-out;
+  animation-duration: .5s;
+}
+@keyframes fold-in {
+  0% {
+    transform: translate3d(0, 100%, 0);
+  }
+  50% {
+    transform: translate3d(0, 50%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fold-out {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, 50%, 0);
+  }
+  100% {
+    transform: translate3d(0, 100%, 0);
+  }
+} 
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+.bounce-leave-active {
+  animation: bounce-out .5s;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes bounce-out {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+*/
+
 </style>
