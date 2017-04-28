@@ -7,6 +7,7 @@ import App from '../App.vue';
 import Index from '../pages/index.vue';
 import Detail from '../pages/detail.vue';
 import DocexDetailReply from '../pages/reply.vue';
+import ReadHistoryList from '../pages/readHistory.vue';
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/detail',
     component: Detail,
     name: 'detail'
+  },
+  {
+    path: '/read',
+    component: ReadHistoryList,
+    name: 'read'
   },
   /*{
     path: '/reply',

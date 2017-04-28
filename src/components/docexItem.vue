@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<router-link :to="{ path: 'detail', query: { id: docex.id, userId: '3', hasFlowShow: docex.hasFlowShow, status: docex.status, source: settingSource, type: indexListType}}">
+		<router-link :to="{ path: 'detail', query: { id: docex.id, userId: this.docex.senderId, hasFlowShow: docex.hasFlowShow, status: docex.status, source: settingSource, type: indexListType}}">
 			<div class="docex-item aui-flex-col aui-flex-center yunzhijia-click-active2">
 				<div class="aui-flex-item-2 aui-flex-row aui-flex-middle" style="padding-bottom: 10px;">
 					<img class="" :src="userImgSrc">

@@ -12,7 +12,9 @@
 				<p class="createdate sub-font-color" style="font-size: 0.79em;">{{headerInfo.createdate}}</p>
 			</div>
 			<div class="aui-flex-item-3 aui-flex-row aui-flex-middle">
-				<h4 id="read-history-btn" class="aui-text-center" style="color: #3cbaff;font-size: 0.85em;margin-top: 1.0rem;">阅读记录</h4>
+				<router-link :to="{ path: 'read', query: { sender: senderAndDetailId.sender, docexId: senderAndDetailId.docexId}}">
+					<h4 id="read-history-btn" class="aui-text-center" style="color: #3cbaff;font-size: 0.85em;margin-top: 1.0rem;">阅读记录</h4>
+				</router-link>
 			</div>
 		</div>
 	</div>
@@ -47,6 +49,14 @@
 					title: this.detailDocexdetailVO.title,
 					sender: this.detailDocexdetailVO.sender,
 					createdate: this.detailDocexdetailVO.createdate,
+				}
+			},
+
+			/*发送者用户id以及详情id*/
+			senderAndDetailId(){
+				return {
+					sender: this.detailDocexdetailVO.senderId,
+					docexId: this.detailDocexdetailVO.id
 				}
 			},
 
