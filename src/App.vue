@@ -2,7 +2,7 @@
   <div id="app">
     <transition
         name="custom-classes-transition"
-        enter-active-class="animated bounce"
+        enter-active-class="animated bounceInRight"
         leave-active-class="animated bounceOutLeft"
     >
       <router-view></router-view>

@@ -2,15 +2,15 @@
 	<div>
 		<div class="aui-tab" style="position: fixed; top: 0;z-index: 12;">
 			    <ul class="aui-tab-nav">
-			        <li class="tab_read actived">已读（{{count}}）</li>
-			        <li class="tab_unread">未读（0）</li>
+			        <li class="tab_read" @click="showReaded()" :class="{actived: active}">已读（{{count}}）</li>
+			        <li class="tab_unread" @click="showUnReaded()" :class="{actived: !active}">未读（0）</li>
 			    </ul>
 			</div>
 			<div style="height:45px;width:100%"></div>
 			<div id="wrapper" ref="readWrapper">
-			    <ul>
+			    <ul class="aui-list-view">
 				   <li class="aui-list-view-cell" v-for="user in results">
-				       <img class="aui-col-xs-2" :src="userImgSrc" style="width: 3.0rem; height: 3.0rem; border-radius: 50%;">
+				       <img class="aui-col-xs-2" :src="userImgSrc(user.id)" style="width: 3.0rem; height: 3.0rem; border-radius: 50%;">
 				           <div class="aui-col-xs-7">
 				               <h4 style="height: 3.0rem;line-height: 3.0rem;margin-left: 0.5rem;" v-text="user.name"></h4>
 				           </div>
@@ -29,10 +29,9 @@
 <script type="text/javascript">
 	import BScroll from 'better-scroll'
 	import api from '../api/api'
-	// import Vue from 'vue'
 	import axios from 'axios'
-	// Vue.prototype.$http = axios
 	import qs from 'qs'
+	import myaxios from '../api/api-axios'
 
 
 	export default{
@@ -44,16 +43,12 @@
 				pageSize: 12,
 				pageStart: 0,
 				type: 1,
-				results: []
+				results: [],
+				active: true
 			}
 		},
 
 		computed: {
-			/*用户头像的url*/
-			userImgSrc(){
-				return `${api.serverInfo.domain}/plugins/dyn/dyn.do?method=file&className=cn.firstsoft.firstframe.plugins.dyn.docex.service.DocexService&methodName=loadPhoto&params=${this.uid}`;
-			},
-
 			count(){
 				return this.results.length
 			}
@@ -121,7 +116,6 @@
 
 		methods: {
 
-
 			_initScroll() {
 				if(!this.readScroll) {
 					this.readScroll = new BScroll(this.$refs.readWrapper, {
@@ -139,6 +133,33 @@
         });
 
       },
+
+      /*用户头像的url*/
+      userImgSrc(uid){
+      	return `${api.serverInfo.domain}/plugins/dyn/dyn.do?method=file&className=cn.firstsoft.firstframe.plugins.dyn.docex.service.DocexService&methodName=loadPhoto&params=${uid}`;
+      },
+
+      /*已读记录*/
+      showReaded(){
+      	this.active = true
+
+      },
+      /*未读记录*/
+      showUnReaded() {
+      	const vm = this
+      	this.active = false
+      	const params = [this.uid, this.docexId, this.pageStart, this.pageSize, 0].join(",")
+      	const methodName = 'getDocexFileReaderListByPageToKOA'
+      	myaxios.post({
+      		methodName,
+      		params
+      	}, function(res){
+      		// console.log("response===============>" + res)
+      		// debugger
+      		vm.results = res.result.docexFileReaderVOs
+      	})
+      }
+
 		}
 	}
 
@@ -149,5 +170,11 @@
 	.actived {
 	    color: #3cbaff ! important;
 	    border-bottom: 2px #3cbaff solid !important;
+	}
+	.aui-list-view:after {
+	    border-top: 0;
+	}
+	#wrapper {
+		margin-top: 15px;
 	}
 </style>
