@@ -8,6 +8,7 @@ import Index from '../pages/index.vue';
 import Detail from '../pages/detail.vue';
 import DocexDetailReply from '../pages/reply.vue';
 import ReadHistoryList from '../pages/readHistory.vue';
+import NewDocexPage from '../pages/newdocex.vue';
 
 Vue.use(VueRouter);
 
@@ -28,6 +29,11 @@ const routes = [
     component: ReadHistoryList,
     name: 'read'
   },
+  {
+    path: '/new',
+    component: NewDocexPage,
+    name: 'new'
+  }
   /*{
     path: '/reply',
     component: DocexDetailReply,

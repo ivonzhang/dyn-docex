@@ -1,6 +1,8 @@
 <template>
 	<div>
-		<div class="yunzhijia-click-active2" id="add_new">创建</div>
+		<router-link :to="{ path: 'new'}">
+			<div class="yunzhijia-click-active2" id="add_new">创建</div>
+		</router-link>
 		<div class="blank" style="height: 3.5em;"></div>
 	</div>
 </template>
