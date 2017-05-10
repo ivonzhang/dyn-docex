@@ -12,7 +12,8 @@ const state = {
         docexdetailAttachs: {},
         docexdetailOperations: {},
         isShowReplyPage: false,
-        opinionSaveStatus: {}
+        opinionSaveStatus: {},
+        fiishStatus: ""
     },
 };
 
@@ -29,7 +30,8 @@ const getters = {
     doecedetailAttachsOfTodo: state => state.detail.docexdetailAttachs,
     docexdetailOperations: state => state.detail.docexdetailOperations,
     docexdetailIsShowReplyPage: state => state.detail.isShowReplyPage,
-    docexdetailOpinionSaveStatus: state => state.detail.opinionSaveStatus
+    docexdetailOpinionSaveStatus: state => state.detail.opinionSaveStatus,
+    docexFinishStatus: state => state.detail.fiishStatus
 };
 
 const actions = {
@@ -92,6 +94,12 @@ const actions = {
         api.saveDetailOpnionOfTodo(docexId, opId, reply_content, isReply, function(res){
             commit(types.DETAIL_REPLYOPINION_SUCCESS, {res})
         })
+    },
+
+    detailFinish({commit},docexId) {
+        api.finishDetail(docexId, function(res) {
+            commit(types.DETAIL_FINISH_SUCCESS, res)
+        })
     }
 }
 
@@ -118,6 +126,9 @@ const mutations = {
     },
     [types.DETAIL_REPLYOPINION_SUCCESS] (state, {res}) {
         state.detail.opinionSaveStatus = res
+    },
+    [types.DETAIL_FINISH_SUCCESS] (state, res) {
+        state.detail.fiishStatus = res
     },
 }
 
