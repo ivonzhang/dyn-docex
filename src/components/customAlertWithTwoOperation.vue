@@ -1,59 +1,30 @@
 <template>
-	<div>
-		<div v-show="config.isShow">
-			<div id="bg" style="display: block;"></div>
-			<div class="myAlert" style="display: block;">
-			 	<div class="alert_title" v-text="config.title"></div>
-			 	<div class="opration_div">
-					<div class="cancle" @click="cancle">取消</div>
-					<div class="confirm" @click="finish">确认</div>
-				</div>
+	<div v-show="config.isShow">
+		<div id="bg" style="display: block;"></div>
+		<div class="myAlert" style="display: block;">
+		 	<div class="alert_title" v-text="config.title"></div>
+		 	<div class="opration_div">
+				<div class="cancle" @click="cancle">取消</div>
+				<div class="confirm" @click="finish">确认</div>
 			</div>
 		</div>
-		<custom-alert :customConfig="showConfig"></custom-alert>
 	</div>
 </template>
 
 <script type="text/javascript">
 	
-	import {mapActions,mapGetters} from 'vuex'
-	import customAlert from './customAlert.vue'
-
 	export default {
-		data() {
-			return {
-				isShowOperationWin: false,
-				showConfig: {
-					showAlert: false,
-					title: this.customTitle,
-					closeTips: "确定",
-					ok: this.afterFinish
-				}
-			}
-		},
-
 		props: {
 			config: {
 				type: Object,
 				default: {
 					isShow: false,
-					title: '提示',
+					title: '处理中...',
 					ok: function(){
 						alert("确定操作未定义")
 					}
 				}
 			}
-		},
-
-		computed: {
-			customTitle(){
-				if(!this.docexFinishStatus) {
-					return "提示"
-				}else{
-					return this.docexFinishStatus
-				}
-			},
-			...mapGetters(['docexFinishStatus'])
 		},
 
 		methods: {
@@ -64,15 +35,9 @@
 			finish() {
 				var vm = this
 				this.config.ok()
-				setTimeout(function(){
-					vm.config.isShow = false
-					vm.showConfig.showAlert = true
-					vm.showConfig.title = vm.docexFinishStatus
-					vm.showConfig.ok = vm.afterFinish
-				},300)
-				console.log(vm.docexFinishStatus)
-
+				vm.config.isShow = false
 			},
+
 			/**
 			 * 定义取消按钮的操作
 			 * @return {[type]} [description]
@@ -91,10 +56,6 @@
 			},
 
 		},
-
-		components: {
-			customAlert
-		}
 	}
 </script>
 

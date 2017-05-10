@@ -12,18 +12,12 @@
 <script type="text/javascript">
 	
 	export default {
-		data() {
-			return {
-				// showAlert: false,
-			}
-		},
-
 		props: {
 			customConfig: {
 				type: Object,
 				default: {
 					showAlert: false,
-					title: '提示',
+					title: '处理中...',
 					closeTips: '确定',
 					ok: function() {
 						alert("确定操作为定义")

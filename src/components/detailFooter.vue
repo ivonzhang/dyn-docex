@@ -7,12 +7,16 @@
 		    <div v-for="operation in docexOperations" v-show="operation.url != 'reply'">{{operation.name}}</div>
 		</div>
 		<custom-alert-with-two-operation :config="showConfig" @finish=""></custom-alert-with-two-operation>
+		<custom-alert :customConfig="showConfig2"></custom-alert>
 	</div>
 </template>
 
 <script type="text/javascript">
+
 	import customAlertWithTwoOperation from './customAlertWithTwoOperation.vue'
 	import {mapActions, mapGetters} from 'vuex'
+	import customAlert from './customAlert.vue'
+
 	export default{
 
 		data() {
@@ -22,7 +26,14 @@
 					isShow: false,
 					title: '是否确认完成事项',
 					ok: this.finishDetail
+				},
+				showConfig2: {
+					showAlert: false,
+					title: this.customTitle,
+					closeTips: "确定",
+					ok: this.afterFinish
 				}
+
 			}
 		},
 
@@ -43,6 +54,10 @@
 				return operationVOs
 			},
 
+			/**
+			 * 是否展示完成操作按钮
+			 * @return {Boolean} [description]
+			 */
 			isShowFinish() {
 				const status = this.detailDocexdetailVO.status
 				return !this.isShowEnd && status !== 3
@@ -58,7 +73,15 @@
 				}
 			},
 
-			...mapGetters(['docexdetailOperations', 'detailDocexdetailVO', 'indexListType'])
+			customTitle(){
+				if(!this.docexFinishStatus) {
+					return "提示"
+				}else{
+					return this.docexFinishStatus
+				}
+			},
+
+			...mapGetters(['docexdetailOperations', 'detailDocexdetailVO', 'indexListType', 'docexFinishStatus'])
 
 		},
 
@@ -67,23 +90,49 @@
 				this.$store.dispatch('setIsShowReplyPage', true)
 			},
 
-			/**/
+			/**
+			 * 是否弹出完成操作的确认提示框
+			 * @return {[type]} [description]
+			 */
 			showFinish() {
 				this.isShowOperationWin = ! this.isShowOperationWin
 				this.showConfig.isShow = true;
 			},
 
+			/**
+			 * 执行完成操作，修改store中相应的状态
+			 * @return {[type]} [description]
+			 */
 			finishDetail(){
+				var vm = this
 				const docexId = this.detailDocexdetailVO.id
 				this.$store.dispatch('detailFinish', docexId).then(function(){
-					
+					// vm.showConfig.isShow = false
+					// 此处监听store中docexFinishStatus的变化 从而确定弹出框的标题提示信息
+					vm.$watch('docexFinishStatus', function (newVal, oldVal) {
+					  if(newVal !== oldVal){
+					  	vm.showConfig2.showAlert = true
+						vm.showConfig2.title = vm.docexFinishStatus
+					  }
+					})
+					vm.showConfig2.ok = vm.afterFinish
 				})
-			}
+			},
+
+			/**
+			 * 定义finish方法完成后的提示操作
+			 * @return {[type]} [description]
+			 */
+			afterFinish(){
+				window.history.back()
+				window.location.reload()
+			},
 
 		},
 
 		components: {
-			customAlertWithTwoOperation
+			customAlertWithTwoOperation,
+			customAlert
 		}
 	}
 
