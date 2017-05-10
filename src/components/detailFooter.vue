@@ -1,17 +1,30 @@
 <template>
-	<div class="foot">
-		<div class="foot_reply" v-show="isShowReplyBtn" @click="showReplyPage">回复</div>
-		<div class="foot_complete" v-show="!isShowEnd">完成</div>
-		<div class="foot_end" v-show="isShowEnd">结束</div>
-	    <div v-for="operation in docexOperations" v-show="operation.url != 'reply'">{{operation.name}}</div>
+	<div>
+		<div class="foot">
+			<div class="foot_reply" v-show="isShowReplyBtn" @click="showReplyPage">回复</div>
+			<div class="foot_complete" v-show="isShowFinish" @click="showFinish">完成</div>
+			<div class="foot_end" v-show="isShowEnd">结束</div>
+		    <div v-for="operation in docexOperations" v-show="operation.url != 'reply'">{{operation.name}}</div>
+		</div>
+		<custom-alert-with-two-operation :config="showConfig" @finish=""></custom-alert-with-two-operation>
 	</div>
-
 </template>
 
 <script type="text/javascript">
-	
+	import customAlertWithTwoOperation from './customAlertWithTwoOperation.vue'
 	import {mapActions, mapGetters} from 'vuex'
 	export default{
+
+		data() {
+			return {
+				isShowOperationWin: false,
+				showConfig: {
+					isShow: false,
+					title: '是否确认完成事项',
+					ok: this.finishDetail
+				}
+			}
+		},
 
 		computed:{
 			/*是否展示结束操作按钮*/
@@ -28,6 +41,11 @@
 			docexOperations(){
 				var operationVOs = this.docexdetailOperations.operationVOs
 				return operationVOs
+			},
+
+			isShowFinish() {
+				const status = this.detailDocexdetailVO.status
+				return !this.isShowEnd && status !== 3
 			},
 
 			/*是否展示回复意见操作按钮*/
@@ -47,7 +65,25 @@
 		methods:{
 			showReplyPage(){
 				this.$store.dispatch('setIsShowReplyPage', true)
+			},
+
+			/**/
+			showFinish() {
+				this.isShowOperationWin = ! this.isShowOperationWin
+				this.showConfig.isShow = true;
+			},
+
+			finishDetail(){
+				const docexId = this.detailDocexdetailVO.id
+				this.$store.dispatch('detailFinish', docexId).then(function(){
+					
+				})
 			}
+
+		},
+
+		components: {
+			customAlertWithTwoOperation
 		}
 	}
 
