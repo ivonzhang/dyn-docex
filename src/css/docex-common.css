@@ -130,7 +130,7 @@ ripple { 100% {
 /*遮罩*/
 #bg{ display: none;  position: fixed;  top: 0%;  left: 0%;  width: 100%;  height: 100%;  background-color: black;  z-index:1001;  -moz-opacity: 0.3;  opacity:.30;  filter: alpha(opacity=30);}
 /*自定义提示窗口: 单个按钮*/
-div.customAlert {display: none;  position: fixed;  top: 35%;  left: 10%;  width: 80%;    padding: 1px;  border: 1px solid #E8E9F7;  background-color: white;  z-index:1002;  overflow: auto; border-radius: 0.3rem;}
+div.customAlert {/* display: none; */  position: fixed;  top: 35%;  left: 10%;  width: 80%;    padding: 1px;  border: 1px solid #E8E9F7;  background-color: white;  z-index:1002;  overflow: auto; border-radius: 0.3rem;}
 div.custom_alert_title{
 	height:auto!important;
 	min-height:80px;
@@ -199,7 +199,7 @@ div.choosed_users div{
 div.choosed_user{
 	width: 3.0em;
 	height: 3.0em;
-	/* background-image: url(../img/xt.png); */
+	background-image: url(../img/xt.png);
 	background-size: 3.0em 3.0em; 
 	background-repeat: no-repeat;
 	position:relative;
@@ -212,7 +212,7 @@ div.delete{
 	height: 20px;
 	right:-16px;
 	top:-8px;
-	/* background-image: url(../img/delete_normal.png); */
+	background-image: url(../img/delete_normal.png);
 	background-size: 20px 20px; 
 	background-repeat: no-repeat;
 	z-index: 6;

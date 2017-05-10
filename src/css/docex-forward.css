@@ -5,7 +5,7 @@ body {
 	font-family: 'Microsoft YaHei', Tahoma, Helvetica, Arial, SimSun, sans-serif;
 	margin: 0px;
 	padding: 0px;
-	background-color: #ffffff;
+	/* background-color: #ffffff; */
 }
 
 div.bar {
@@ -168,7 +168,7 @@ div.add_to_special{
 div.add_to_special div.special{
 	width: 2em;
 	height: 2em;
-	background-image: url(../img/add_to_special_active.png?v=2);
+	background-image: url(../img/add_to_special_active.png);
 	background-size: 2em 2em; 
 	background-repeat: no-repeat;
 	background-position:center;
