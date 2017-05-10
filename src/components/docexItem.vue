@@ -48,7 +48,7 @@
 			setDocexStatusInfo(){
 				const listType = this.$store.state.index.index.listType;
 				var docexStatus = '进行中';
-				if(listType === 'done'){
+				if(listType !== 'todo'){
 					if(this.docex.status == 3){
 						docexStatus = '已结束';
 					}else if(this.docex.status == 6){
