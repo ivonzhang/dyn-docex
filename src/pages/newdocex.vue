@@ -3,7 +3,7 @@
 		<div id="add_content" v-show="!showNext">
 			<div class="title_div"><input placeholder="请输入标题(限25个字)" id="title"  v-model="title"></div>
 			<div class="content_div">
-				<div id="content" contenteditable="true">123</div>
+				<div id="content" contenteditable="true"></div>
 			</div>
 			
 			<!--
@@ -121,15 +121,9 @@
 		        </div>
 		    </div>
 		</div>
-
-		<div id="bg"></div>
-		<!-- 自定义提示窗口 -->
-		<div class="customAlert" v-show="showAlert">
-		 	<div class="custom_alert_title" v-text="tipsTitle">输入的内容不能为空</div>
-		 	<div class="custom_confirm_div" @click="closeTips">确定</div>
-		</div>
-
-
+		
+		
+		<custom-alert :customConfig="showConfig"></custom-alert>
 	</div>
 </template>
 
@@ -138,19 +132,23 @@
 
 	import contentDiv from '../components/newContentEdiableDiv.vue'
 	import userPicker from '../base/user/userPicker.vue'
+	import customAlert from '../components/customAlert.vue'
 
 	export default{
 
 		data () {
 			return {
-				title: "test",
+				title: "",
 				content: "",
 				showNext: false,
-				showAlert: false,
-				tipsTitle: "输入的内容不能为空",
 				isActive: true,
 				stepVOs: [{userIds:[], isRevert:0, stepType:4, isChangMem:1, stepName:""}],
-				count: 1
+				showConfig: {
+					showAlert: false,
+					title: '输入的内容不能为空',
+					closeTips: "确定",
+					ok: this.closeTips
+				}
 			}
 		},
 
@@ -185,7 +183,8 @@
 				var content = $("#content").html();
 				this.content = content
 				if(this.title === "" || content === "") {
-					this.showTips("输入的内容不能为空")
+					// this.showTips("输入的内容不能为空")
+					this.showConfig.showAlert = true
 					return this.showNext = false
 				}else{
 					return this.showNext = !this.showNext
@@ -194,19 +193,11 @@
 			},
 
 			/**
-			 * 弹出提示框
-			 * @param  {[type]} title [description]
+			 * 关闭弹出提示框
 			 * @return {[type]}       [description]
 			 */
-			showTips(title){
-				this.tipsTitle = title
-				this.showAlert = true
-				$("#bg").show()
-			},
-
 			closeTips() {
-				this.showAlert = false
-				$("#bg").hide()
+				this.showConfig.showAlert = false
 			},
 
 			/**
@@ -261,18 +252,24 @@
 				}
 			},
 
-			/**/
+			/**
+			 * 是否允许在该节点执行转发操作
+			 * @param  {[type]} index [description]
+			 * @return {[type]}       [description]
+			 */
 			canRevert(index){
 				if(index < this.stepVOs.length && index >= 0) {
 					const targetStepVO = this.stepVOs[index]
 					targetStepVO.isRevert = targetStepVO.isRevert === 1 ? 0 : 1
 				}
-			}
+			},
+
 		},
 
 		components:{
 			contentDiv,
-			userPicker
+			userPicker,
+			customAlert
 		}
 	}
 	
