@@ -113,7 +113,7 @@
 
 </script>
 
-<style type="text/css">
+<style type="text/css" scoped>
 	div.clear{clear:both;}
 
 	/*新回复操作样式*/

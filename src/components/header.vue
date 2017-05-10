@@ -95,7 +95,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
   body{color: #3f3f3f;}
   .aui-list-view:after {border-top: 0px solid #c8c7cc; }

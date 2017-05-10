@@ -82,7 +82,7 @@
 
 </script>
 
-<style type="text/css">
+<style type="text/css" scoped>
 	#main {
 		background-color: #fff;
 		margin-top: 5px;

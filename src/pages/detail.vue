@@ -78,7 +78,7 @@
 	}
 
 </script>
-<style type="text/css">
+<style type="text/css" scoped>
 	#main {
 	    margin-bottom: 4.0rem;
 	}

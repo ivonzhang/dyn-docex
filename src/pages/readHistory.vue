@@ -33,7 +33,6 @@
 	import qs from 'qs'
 	import myaxios from '../api/api-axios'
 
-
 	export default{
 
 		data () {

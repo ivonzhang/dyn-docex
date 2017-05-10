@@ -26,7 +26,7 @@ export default {
 	 * @param  {Function} cb  [description]
 	 * @return {[type]}       [description]
 	 */
-    post: async function(req, cb) {
+    post: async (req, cb) => {
         Object.assign(reqConfig, req)
         myAxios.post('', qs.stringify(reqConfig)).then(function(response) {
             console.log(response)
@@ -36,7 +36,7 @@ export default {
         }).catch(function(error) {
             console.log(error);
         })
-    },
+    }
 
 
     // readHistory: async() => {}
