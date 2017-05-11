@@ -13,7 +13,8 @@ const state = {
         docexdetailOperations: {},
         isShowReplyPage: false,
         opinionSaveStatus: {},
-        fiishStatus: ""
+        fiishStatus: "",
+        endStatus: ""
     },
 };
 
@@ -31,7 +32,8 @@ const getters = {
     docexdetailOperations: state => state.detail.docexdetailOperations,
     docexdetailIsShowReplyPage: state => state.detail.isShowReplyPage,
     docexdetailOpinionSaveStatus: state => state.detail.opinionSaveStatus,
-    docexFinishStatus: state => state.detail.fiishStatus
+    docexFinishStatus: state => state.detail.fiishStatus,
+    docexEndStatus: state => state.detail.endStatus,
 };
 
 const actions = {
@@ -95,10 +97,26 @@ const actions = {
             commit(types.DETAIL_REPLYOPINION_SUCCESS, {res})
         })
     },
-
+    /**
+     * 发起完成事项的操作
+     * @param  {[type]} options.commit [description]
+     * @param  {[type]} docexId        [description]
+     * @return {[type]}                [description]
+     */
     detailFinish({commit},docexId) {
         api.finishDetail(docexId, function(res) {
             commit(types.DETAIL_FINISH_SUCCESS, res)
+        })
+    },
+    /**
+     * 结束事项的操作
+     * @param  {[type]} options.commit [description]
+     * @param  {[type]} docexId        [description]
+     * @return {[type]}                [description]
+     */
+    detailEnd({commit},docexId) {
+        api.endDetail(docexId, function(res) {
+            commit(types.DETAIL_END_SUCCESS, res)
         })
     }
 }
@@ -129,6 +147,9 @@ const mutations = {
     },
     [types.DETAIL_FINISH_SUCCESS] (state, res) {
         state.detail.fiishStatus = res
+    },
+    [types.DETAIL_END_SUCCESS] (state, res) {
+        state.detail.endStatus = res
     },
 }
 
