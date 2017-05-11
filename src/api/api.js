@@ -225,6 +225,15 @@ export default {
 		});
 	},
 
+	endDetail(docexId, cb) {
+		$.kdk3oa.endDetail(docexId, function(result) {
+			cb.apply(null,[result])
+		}, function(error) {
+			// $.stopLoading();
+			alert('请求失败: ' + error);
+		});
+	}
+
 
 	
 }
