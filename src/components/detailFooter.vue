@@ -3,10 +3,10 @@
 		<div class="foot">
 			<div class="foot_reply" v-show="isShowReplyBtn" @click="showReplyPage">回复</div>
 			<div class="foot_complete" v-show="isShowFinish" @click="showFinish">完成</div>
-			<div class="foot_end" v-show="isShowEnd">结束</div>
+			<div class="foot_end" v-show="isShowEnd" @click="showEnd">结束</div>
 		    <div v-for="operation in docexOperations" v-show="operation.url != 'reply'">{{operation.name}}</div>
 		</div>
-		<custom-alert-with-two-operation :config="showConfig" @finish=""></custom-alert-with-two-operation>
+		<custom-alert-with-two-operation :config="showConfig"></custom-alert-with-two-operation>
 		<custom-alert :customConfig="showConfig2"></custom-alert>
 	</div>
 </template>
@@ -21,7 +21,6 @@
 
 		data() {
 			return {
-				isShowOperationWin: false,
 				showConfig: {
 					isShow: false,
 					title: '是否确认完成事项',
@@ -81,7 +80,7 @@
 				}
 			},
 
-			...mapGetters(['docexdetailOperations', 'detailDocexdetailVO', 'indexListType', 'docexFinishStatus'])
+			...mapGetters(['docexdetailOperations', 'detailDocexdetailVO', 'indexListType', 'docexFinishStatus', 'docexEndStatus'])
 
 		},
 
@@ -95,7 +94,6 @@
 			 * @return {[type]} [description]
 			 */
 			showFinish() {
-				this.isShowOperationWin = ! this.isShowOperationWin
 				this.showConfig.isShow = true;
 			},
 
@@ -127,6 +125,35 @@
 				window.history.back()
 				window.location.reload()
 			},
+
+			/**
+			 * 是否弹出结束操作提示框
+			 * @return {[type]} [description]
+			 */
+			showEnd() {
+				this.showConfig.title = '是否确认结束事项'
+				this.showConfig.ok = this.endDetail
+				this.showConfig.isShow = true
+			},
+
+			/**
+			 * 执行结束操作，修改store中相应的状态
+			 * @return {[type]} [description]
+			 */
+			endDetail() {
+				console.log("endDetail")
+				var vm = this
+				const docexId = this.detailDocexdetailVO.id
+				this.$store.dispatch('detailEnd', docexId).then(function() {
+					vm.$watch('docexEndStatus', function (newVal, oldVal) {
+					  if(newVal !== oldVal){
+					  	vm.showConfig2.showAlert = true
+						vm.showConfig2.title = vm.docexEndStatus
+					  }
+					})
+					vm.showConfig2.ok = vm.afterFinish
+				})
+			}
 
 		},
 
