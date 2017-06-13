@@ -11,8 +11,8 @@ export default {
 	serverInfo:{
 		// domain: '/api'//配合vue-cli的配置项proxyTable设置代理 先弃用吧
 		domain: 'http://172.20.105.112:7890/oa',
-		/*
-		// 部署在生成环境的时候使用下面的相对路径
+		
+		/*// 部署在生成环境的时候使用下面的相对路径
 		domain: '../../..'*/
 	},
 

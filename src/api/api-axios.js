@@ -26,6 +26,8 @@ export default {
 	 * @param  {Function} cb  [description]
 	 * @return {[type]}       [description]
 	 */
+    /*
+        // 貌似这个工程里的uglifyJS不支持ES7的语法，不能转成ES5
     post: async (req, cb) => {
         Object.assign(reqConfig, req)
         myAxios.post('', qs.stringify(reqConfig)).then(function(response) {
@@ -36,6 +38,18 @@ export default {
         }).catch(function(error) {
             console.log(error);
         })
+    },*/
+
+    post(req, cb) {
+       Object.assign(reqConfig, req)
+       myAxios.post('', qs.stringify(reqConfig)).then(function(response) {
+           console.log(response)
+           if(response.data.success === 1) {
+            cb(response.data)
+           }
+       }).catch(function(error) {
+           console.log(error);
+       }) 
     }
 
 
