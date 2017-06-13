@@ -134,6 +134,8 @@
 	import userPicker from '../base/user/userPicker.vue'
 	import customAlert from '../components/customAlert.vue'
 
+	import {mapGetters} from 'vuex'
+
 	export default{
 
 		data () {
@@ -161,6 +163,18 @@
 			}
 		},*/
 
+		created() {
+			var vm = this
+			const path = this.$route.name
+			if(path === 'revert') {
+				this.$nextTick(function() {
+					vm.title = vm.detailDocexdetailVO.title
+					$("#content").html(vm.detailContentOfTodo.content)
+				})
+				
+			}
+		},
+
 
 		computed: {
 			classObject1(){
@@ -174,7 +188,13 @@
 				     "aui-icon-roundcheckfill": !this.isActive,
 				     'aui-icon-round': this.isActive,
 			    }
-			}
+			},
+
+			docexId() {
+				return this.detailDocexdetailVO.id
+			},
+
+			...mapGetters(['detailContentOfTodo', 'detailDocexdetailVO'])
 		},
 
 

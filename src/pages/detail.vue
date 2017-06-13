@@ -53,6 +53,12 @@
 		    		});
 		    	},100);
 		    });
+
+		    /*vm.$router.beforeEach((to, from, next) => {
+			  // console.log("=========="+router.app.source)
+			  vm.$store.dispatch('settingGetInitInfo')
+			  next()
+			})*/
 		},
 
 		components:{
