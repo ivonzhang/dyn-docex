@@ -128,3 +128,11 @@
 	}
 
 </script>
+
+<style type="text/css" scoped>
+	.choosed_users {
+	    float: left;
+	    background-color: #fff;
+	    width: 100%;
+	}
+</style>
