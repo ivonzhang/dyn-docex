@@ -4,7 +4,8 @@
 			<div class="foot_reply" v-show="isShowReplyBtn" @click="showReplyPage">回复</div>
 			<div class="foot_complete" v-show="isShowFinish" @click="showFinish">完成</div>
 			<div class="foot_end" v-show="isShowEnd" @click="showEnd">结束</div>
-		    <div v-for="operation in docexOperations" v-show="operation.url != 'reply'">{{operation.name}}</div>
+		    <div v-for="operation in docexOperations" v-show="operation.url != 'reply'"><router-link :to="{path: operation.url}" >{{operation.name}}</router-link></div>
+		    
 		</div>
 		<custom-alert-with-two-operation :config="showConfig"></custom-alert-with-two-operation>
 		<custom-alert :customConfig="showConfig2"></custom-alert>
@@ -193,4 +194,5 @@
 	    float: left;
 	    opacity: 0.2;
 	}
+	a{color: #9a9a9a;}
 </style>

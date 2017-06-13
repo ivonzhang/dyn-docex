@@ -5,7 +5,7 @@
 		</div>
 		<div class="aui-flex-col aui-flex-center" style="background-color: #fff;">
 			<div class="aui-flex-item-2 aui-flex-col aui-padded-0-5 aui-flex-middle">
-				<img class="sender-img" style="width:2.2rem; height: 2.2rem;border-radius: 50%;" :src="userImgSrc">
+				<img class="sender-img" :src="userImgSrc">
 			</div>
 			<div class="aui-flex-item-7 aui-row-5  aui-flex-middle">
 				<p class="sender-name sub-font-color" style="font-size: 0.79em;">{{headerInfo.sender}}</p>
@@ -13,7 +13,7 @@
 			</div>
 			<div class="aui-flex-item-3 aui-flex-row aui-flex-middle">
 				<router-link :to="{ path: 'read', query: { sender: senderAndDetailId.sender, docexId: senderAndDetailId.docexId}}">
-					<h4 id="read-history-btn" class="aui-text-center" style="color: #3cbaff;font-size: 0.85em;margin-top: 1.0rem;">阅读记录</h4>
+					<h4 id="read-history-btn" class="aui-text-center">阅读记录</h4>
 				</router-link>
 			</div>
 		</div>
@@ -67,14 +67,17 @@
 
 </script>
 
-<style type="text/css">
+<style type="text/css" scoped>
 	.title {
 	    padding: 0.5rem;
 	    background-color: #fff;
+	    border: none;
 	}
 	.title .title_div {
 	    word-break: break-all;
 	    font-weight: bold;
 	    font-size: 1.3em;
 	}
+	.sender-img{width:2.2rem; height: 2.2rem;border-radius: 50%;}
+	#read-history-btn{color: #3cbaff;font-size: 0.85em;margin-top: 1.0rem;}
 </style>

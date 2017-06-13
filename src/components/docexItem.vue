@@ -70,7 +70,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	.docex-item {
 	    width: 100%;
 	    display: -webkit-box;
