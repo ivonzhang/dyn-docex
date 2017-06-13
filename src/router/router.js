@@ -9,6 +9,7 @@ import Detail from '../pages/detail.vue';
 import DocexDetailReply from '../pages/reply.vue';
 import ReadHistoryList from '../pages/readHistory.vue';
 import NewDocexPage from '../pages/newdocex.vue';
+import Special from '../pages/special.vue'
 
 Vue.use(VueRouter);
 
@@ -33,6 +34,15 @@ const routes = [
     path: '/new',
     component: NewDocexPage,
     name: 'new'
+  },
+  {
+    path: '/revert',
+    component: NewDocexPage,
+    name: 'revert'
+  },
+  {
+    path: '/special',
+    component: Special
   }
   /*{
     path: '/reply',
