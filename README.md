@@ -1,6 +1,6 @@
 # dyn-docex
 
-> convert dyn-docex from jQuery to vue
+> Use Vue to build a web app of Kingdee OA functional moudle named "Collab Work".
 
 ## Build Setup
 
