@@ -1,6 +1,6 @@
 # dyn-docex
 
-> Use Vue to build a web app of Kingdee OA functional moudle named "Collab Work".
+> Use Vue to build a web app named "Collab Work" of Kingdee OA.
 
 ## Build Setup
 
